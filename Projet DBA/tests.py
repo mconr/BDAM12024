@@ -2,7 +2,7 @@ import psycopg2
 
 def connect_to_database():
     # Connexion à la base de données
-    conn = psycopg2.connect("dbname='databasedbaproject' user='' password=''")
+    conn = psycopg2.connect("dbname='bdam12025' user='postgres' password='admin'")
     return conn
 
 def list_departements_by_region(conn, reg):
