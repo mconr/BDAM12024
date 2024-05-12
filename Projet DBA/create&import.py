@@ -151,7 +151,7 @@ def import_data():
             cur.execute("""
                 INSERT INTO regions (reg, ncc, cheflieu)
                 VALUES (%s, %s, %s)
-            """, (row[0], row[1], row[2]))
+            """, (row[0], row[3], row[1]))
 
     # Import des données des départements depuis le fichier CSV
     with open('departements.csv', 'r') as file:
@@ -161,7 +161,7 @@ def import_data():
             cur.execute("""
                 INSERT INTO departements (dep, reg, ncc, cheflieu)
                 VALUES (%s, %s, %s, %s)
-            """, (row[0], row[1], row[2], row[3]))
+            """, (row[0], row[1], row[4], row[2]))
 
     # Import des données des communes depuis le fichier CSV
     with open('communes.csv', 'r') as file:
@@ -172,7 +172,7 @@ def import_data():
                 INSERT INTO communes (com, reg, dep, ncc)
                 VALUES (%s, %s, %s, %s)
                 ON CONFLICT (com) DO NOTHING
-            """, (row[0], row[1], row[2], row[3]))
+            """, (row[1], row[2], row[3], row[7]))
         
     # Import de la population depuis le fichier CSV
     with open('population.csv', 'r') as file:
